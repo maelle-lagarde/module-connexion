@@ -1,8 +1,10 @@
 <?php
+
+    session_start();
+
     // vérifier si l'utilisateur est "admin".
-    if ($_SESSION['login'] !== 'admin') {
-        // rediriger l'utilisateur s'il n'est pas "admin".
-        header("Location: index.php");
+    if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true || $_SESSION['login'] !== 'admin') {
+        header("Location: connexion.php");
         exit;
     }
 
