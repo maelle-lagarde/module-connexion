@@ -8,6 +8,8 @@
         exit;
     }
 
+    $message = ""; // variable pour stocker le message de succès.
+
     // vérification des informations d'inscription.
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $login = $_POST["login"];
@@ -44,9 +46,7 @@
                     $stmt = $bdd->prepare($query);
                     $stmt->execute([$login, $prenom, $nom, $password]);
 
-                    // redirection vers la page de connexion.
-                    header('Location: connexion.php');
-                    exit;
+                    $message = "Votre inscription a été validé avec succès!";
                 }
             } catch (PDOException $e) {
                 die("Échec de la connexion à la base de données : " . $e->getMessage());
@@ -54,11 +54,6 @@
         }
     }
 
-    // validation de l'inscription.
-    if (isset($_SESSION['inscription_success_message'])) {
-        $inscriptionSuccessMessage = $_SESSION['inscription_success_message'];
-        unset($_SESSION['inscription_success_message']); // suppression du message de la variable de session.
-    }
 ?>
 
 <!DOCTYPE html>
@@ -81,8 +76,8 @@
             }
         ?>
 
-        <?php if (isset($inscriptionSuccessMessage)) : ?>
-            <p style="color: green;"><?php echo $inscriptionSuccessMessage; ?></p>
+        <?php if (!empty($message)) : ?>
+            <div class="success-message"><?php echo $message; ?></div>
         <?php endif; ?>
 
         <div class="form">

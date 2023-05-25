@@ -95,3 +95,8 @@ p {
 label {
     text-align: left;
 }
+
+.success-message {
+    color: green;
+    margin-bottom: 40px;
+}
