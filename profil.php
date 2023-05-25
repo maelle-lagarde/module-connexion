@@ -33,11 +33,13 @@
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $prenom = $_POST['prenom'];
             $nom = $_POST['nom'];
+            $newPassword = $_POST['newPassword'];
 
             // mettre à jour les informations de l'utilisateur dans la BDD.
-            $stmt = $bdd->prepare("UPDATE utilisateurs SET prenom = :prenom, nom = :nom WHERE login = :login");
+            $stmt = $bdd->prepare("UPDATE utilisateurs SET prenom = :prenom, nom = :nom, password = :password WHERE login = :login");
             $stmt->bindParam(':prenom', $prenom);
             $stmt->bindParam(':nom', $nom);
+            $stmt->bindParam(':password', $newPassword);
             $stmt->bindParam(':login', $login);
             $stmt->execute();
 
@@ -80,6 +82,9 @@
 
             <label for="nom">Nom :</label>
             <input type="text" id="nom" name="nom" value="<?php echo $_SESSION['nom']; ?>"><br>
+
+            <label for="newPassword">Mot de passe :</label>
+            <input type="text" id="newPassword" name="newPassword" ><br>
 
             <input type="submit" value="Mettre à jour">
         </form>
