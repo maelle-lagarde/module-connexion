@@ -37,7 +37,7 @@
     <title>Page d'administration</title>
 </head>
 <body>
-    <div class="box">
+    <div class="box-admin">
         <h1>Page d'administration</h1>
 
         <table>

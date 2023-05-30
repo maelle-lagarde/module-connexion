@@ -21,6 +21,10 @@
             <a href="profil.php"><button class="profil-button">Profil</button></a>
 
             <a href="deconnexion.php"><button class="deconexion-button">Déconnexion</button></a>
+
+            <a href="admin.php"><button class="admin-button">Admin</button></a>
+
+            <a href="https://github.com/maelle-lagarde/module-connexion" target="_blank"><button class="admin-button">Lien github</button></a>
         </div>
     </div>
 </body>

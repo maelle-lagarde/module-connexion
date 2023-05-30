@@ -75,6 +75,22 @@ input[type="submit"]:hover {
     width: 30%;
 }
 
+.box-admin {
+    padding: 30px 50px 50px 50px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
+    border: 1px solid darkgray;
+    width: 50%;
+}
+
 .buttons {
     display: flex;
     justify-content: center;
@@ -99,4 +115,8 @@ label {
 .success-message {
     color: green;
     margin-bottom: 40px;
+}
+
+table tr {
+    margin-bottom: 20px;
 }
